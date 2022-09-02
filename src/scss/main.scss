@@ -1,0 +1,50 @@
+@import 'utils/button', 'utils/config', 'utils/utils';
+
+$clock-width: 300px;
+$clock-height: 300px;
+
+$small-hands-width: 2px;
+$large-hands-width: 4px;
+
+body {
+   background-color: rgb(43, 43, 43);
+
+   .clock {
+	  width: $clock-width;
+	  height: $clock-height;
+	  border: 1px solid rgb(255, 255, 255);
+	  border-radius: 50%;
+
+	  position: absolute;
+	  @extend %center-object;
+
+	  #seconds-hand {
+		 width: $small-hands-width;
+		 height: ($clock-height / 2) - 20px;
+		 background-color: rgb(70, 255, 255);
+
+		 position: absolute;
+		 left: ($clock-width / 2) - $small-hands-width;
+	  }
+	  #minutes-hand {
+		 width: $small-hands-width;
+		 height: ($clock-height / 2) - 50px;
+		 background-color: rgb(253, 120, 227);
+
+		 position: absolute;
+		 left: ($clock-width / 2) - $small-hands-width;
+		 bottom: ($clock-width / 2) - $small-hands-width;
+
+		 opacity: 50%;
+	  }
+	  #hours-hand {
+		 width: $large-hands-width;
+		 height: ($clock-height / 2) - 70px;
+		 background-color: rgb(205, 112, 255);
+
+		 position: absolute;
+		 left: ($clock-width / 2) - $large-hands-width;
+		 bottom: ($clock-width / 2) - $large-hands-width;
+	  }
+   }
+}
