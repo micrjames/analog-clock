@@ -4,7 +4,7 @@
   margin: 0;
 }
 
-body .clock {
+body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -12,8 +12,6 @@ body .clock {
 
 body {
   background-color: #2b2b2b;
-}
-body .clock {
   width: 300px;
   height: 300px;
   border: 1px solid white;

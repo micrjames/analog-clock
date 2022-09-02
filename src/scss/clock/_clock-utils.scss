@@ -1,0 +1,22 @@
+@import 'utils/utils';
+
+@mixin hand-rect($width, $height, $color, $position-left, $position-bottom: null) {
+   width: $width;
+   height: $height;
+   background-color: $color;
+
+   position: absolute;
+   left: $position-left;
+   @if $position-bottom { 
+	  bottom: $position-bottom;
+   }
+}
+@mixin circle($color) {
+   width: $clock-width;
+   height: $clock-height;
+   border: 1px solid $color;
+   border-radius: 50%;
+
+   position: absolute;
+   @extend %center-object;
+} 

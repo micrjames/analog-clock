@@ -1,50 +1,22 @@
-@import 'utils/button', 'utils/config', 'utils/utils';
-
-$clock-width: 300px;
-$clock-height: 300px;
-
-$small-hands-width: 2px;
-$large-hands-width: 4px;
+@use 'sass:map';
+@import 'clock/clock-config';
 
 body {
    background-color: rgb(43, 43, 43);
+   @include circle($white);
 
    .clock {
-	  width: $clock-width;
-	  height: $clock-height;
-	  border: 1px solid rgb(255, 255, 255);
-	  border-radius: 50%;
-
-	  position: absolute;
-	  @extend %center-object;
 
 	  #seconds-hand {
-		 width: $small-hands-width;
-		 height: ($clock-height / 2) - 20px;
-		 background-color: rgb(70, 255, 255);
-
-		 position: absolute;
-		 left: ($clock-width / 2) - $small-hands-width;
+		 @include hand-rect($small-hands-width, $clock-height-half - 20px, $seconds-hand-color, map.get($seconds-hand-position, "left"));
 	  }
 	  #minutes-hand {
-		 width: $small-hands-width;
-		 height: ($clock-height / 2) - 50px;
-		 background-color: rgb(253, 120, 227);
-
-		 position: absolute;
-		 left: ($clock-width / 2) - $small-hands-width;
-		 bottom: ($clock-width / 2) - $small-hands-width;
+		 @include hand-rect($small-hands-width, $clock-height-half - 50px, $minutes-hand-color, map.get($minutes-hand-position, "left"), map.get($minutes-hand-position, "bottom")); 
 
 		 opacity: 50%;
 	  }
 	  #hours-hand {
-		 width: $large-hands-width;
-		 height: ($clock-height / 2) - 70px;
-		 background-color: rgb(205, 112, 255);
-
-		 position: absolute;
-		 left: ($clock-width / 2) - $large-hands-width;
-		 bottom: ($clock-width / 2) - $large-hands-width;
+		 @include hand-rect($large-hands-width, $clock-height-half - 70px, $hours-hand-color, map.get($hours-hand-position, "left"), map.get($hours-hand-position, "bottom"));
 	  }
    }
 }

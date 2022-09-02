@@ -1,0 +1,20 @@
+@use 'sass:math';
+@import 'utils/button', 'utils/config', 'clock-utils';
+
+$clock-width: 300px;
+$clock-height: 300px;
+
+$clock-width-half: math.div($clock-width, 2); 
+$clock-height-half: math.div($clock-height, 2); 
+ 
+$small-hands-width: 2px;
+$large-hands-width: 4px;
+
+$white: rgb(255, 255, 255);
+$seconds-hand-color: rgb(70, 255, 255);
+$minutes-hand-color: rgb(253, 120, 227);
+$hours-hand-color: rgb(205, 112, 255);
+
+$seconds-hand-position: ("left": $clock-width-half - $small-hands-width, "bottom": null);
+$minutes-hand-position: ("left": $clock-width-half - $small-hands-width, "bottom": $clock-width-half - $small-hands-width);
+$hours-hand-position: ("left": $clock-width-half - $large-hands-width, "bottom": $clock-width-half - $large-hands-width);      
